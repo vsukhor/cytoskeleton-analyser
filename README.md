@@ -62,6 +62,10 @@ replace the last line above with
 pip install git+git://github.com/vsukhor/cytoskeleton-analyser
 ```
 
+## Getting Started
+
+A more complete introduction, use examples and API are available in the [documentation](https://cytoskeleton-analyser.readthedocs.io/en/latest/index.html).`
+
 ## License
 **cytoskeleton-analyser** is available under the terms of the BSD 3 Clause license. 
 See LICENSE.txt for more information.
