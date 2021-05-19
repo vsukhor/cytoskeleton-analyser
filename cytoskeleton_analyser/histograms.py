@@ -103,8 +103,8 @@ class Simulated:
 
     def __init__(self):
 
-        self.bc: np.ndarray = np.empty(0, dtype=float) #: Bin centers.
-        self.h: np.ndarray = np.empty(0, dtype=float)  #: Frequency values.
+        self.bc: np.ndarray = np.empty(0, dtype=float)  #: Bin centers.
+        self.h: np.ndarray = np.empty(0, dtype=float)   #: Frequency values.
         self.fits: list = []           #: Fits to 'h' over 'bc'.
         self.extent: list = []         #: x axis extent for plotting.
         self.avg = None                #: Average of 'h' over 'bc'.

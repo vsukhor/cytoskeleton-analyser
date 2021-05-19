@@ -158,7 +158,8 @@ class Report(ABC):
                 cls.logger.info(f"{d['name']}: ")
                 h.fits = [
                     fit.restore(c, d['model']['p'], cls.units, h.bc, h.h,
-                                fit.method_from_classname(c, d['model']['name']))
+                                fit.method_from_classname(c,
+                                                          d['model']['name']))
                 ]
 
     @classmethod

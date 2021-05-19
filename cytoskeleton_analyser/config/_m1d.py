@@ -49,9 +49,10 @@ class M1d:
         self.cap = {}         # on, off
         self.pl_membr = {}    # orient_strength, interact_thresh
         self.nuc_membr = {}   # orient_strength, interact_thresh
-        self.cas = {}         # thickness, orientation, growth_slowdown,
-                              # catastr_inhibition, catastr_activation,
-                              # rescue_inhibition, rescue_activation
+        # thickness, orientation, growth_slowdown,
+        # catastr_inhibition, catastr_activation,
+        # rescue_inhibition, rescue_activation
+        self.cas = {}
 
     def read(
             self,
@@ -60,45 +61,43 @@ class M1d:
         """ Initialise this instance using the configuration Reader.
         """
 
-        # Parameter names used in the simulation output file are given
-        # in comments.
-        self.release = float(r.value(2))   # pRelease
-        self.cut = float(r.value(2))   # pCut
-        self.cap['on'] = float(r.value(2))  # pCap0
-        self.cap['off'] = float(r.value(2))     # pUncap0
+        self.release = float(r.value(2))
+        self.cut = float(r.value(2))
+        self.cap['on'] = float(r.value(2))
+        self.cap['off'] = float(r.value(2))
 
-        self.state_change['gs'] = float(r.value(2))   # pGSfree
-        self.state_change['sg'] = float(r.value(2))   # pSGfree
-        self.state_change['ps'] = float(r.value(2))   # pPSfree
+        self.state_change['gs'] = float(r.value(2))
+        self.state_change['sg'] = float(r.value(2))
+        self.state_change['ps'] = float(r.value(2))
 
-        self.cas['thickness'] = float(r.value(2))  # casThickness
+        self.cas['thickness'] = float(r.value(2))
         self.cas['orientation'] = {}
-        self.cas['orientation']['extent'] = float(r.value(2))  # casOrientation_zoneExtent
-        self.cas['orientation']['intensity'] = float(r.value(2))   # casOrientation_intensity
+        self.cas['orientation']['extent'] = float(r.value(2))
+        self.cas['orientation']['intensity'] = float(r.value(2))
         self.cas['catastr_activation'] = {}
-        self.cas['catastr_activation']['extent'] = float(r.value(2))   # casRescueActivation_zoneExtent
-        self.cas['catastr_activation']['intensity'] = float(r.value(2))    # casRescueActivation_intensity
+        self.cas['catastr_activation']['extent'] = float(r.value(2))
+        self.cas['catastr_activation']['intensity'] = float(r.value(2))
         self.cas['catastr_inhibition'] = {}
-        self.cas['catastr_inhibition']['extent'] = float(r.value(2))   # casCatastrInhibition_zoneExtent
-        self.cas['catastr_inhibition']['intensity'] = float(r.value(2))    # casCatastrInhibition_intensity
+        self.cas['catastr_inhibition']['extent'] = float(r.value(2))
+        self.cas['catastr_inhibition']['intensity'] = float(r.value(2))
         self.cas['rescue_activation'] = {}
-        self.cas['rescue_activation']['extent'] = float(r.value(2))    # casGrowthSlowdown_zoneExtent
-        self.cas['rescue_activation']['intensity'] = float(r.value(2))  # casGrowthSlowdown_intensity
+        self.cas['rescue_activation']['extent'] = float(r.value(2))
+        self.cas['rescue_activation']['intensity'] = float(r.value(2))
         self.cas['rescue_inhibition'] = {}
-        self.cas['rescue_inhibition']['extent'] = float(r.value(2))    # casRescueInhibition_zoneExtent
-        self.cas['rescue_inhibition']['intensity'] = float(r.value(2))  # casRescueInhibition_intensity
+        self.cas['rescue_inhibition']['extent'] = float(r.value(2))
+        self.cas['rescue_inhibition']['intensity'] = float(r.value(2))
         self.cas['growth_slowdown'] = {}
-        self.cas['growth_slowdown']['extent'] = float(r.value(2))  # casCatastrActivation_zoneExtent
-        self.cas['growth_slowdown']['intensity'] = float(r.value(2))   # casCatastrActivation_intensity
+        self.cas['growth_slowdown']['extent'] = float(r.value(2))
+        self.cas['growth_slowdown']['intensity'] = float(r.value(2))
 
-        self.pl_membr['orient_strength'] = float(r.value(2))   # plMembrOrientStrength
-        self.pl_membr['interact_thresh'] = float(r.value(2))   # plMembrInteractThresh
+        self.pl_membr['orient_strength'] = float(r.value(2))
+        self.pl_membr['interact_thresh'] = float(r.value(2))
 
-        self.nuc_membr['orient_strength'] = float(r.value(2))   # nucMembrOrientStrength
-        self.nuc_membr['interact_thresh'] = float(r.value(2))   # nucMembrInteractThresh
+        self.nuc_membr['orient_strength'] = float(r.value(2))
+        self.nuc_membr['interact_thresh'] = float(r.value(2))
 
-        self.velocity['sh0'] = float(r.value(2))      # velocity_sh0
-        self.velocity['sh1'] = float(r.value(2))      # velocity_sh1
+        self.velocity['sh0'] = float(r.value(2))
+        self.velocity['sh1'] = float(r.value(2))
 
     def __eq__(self, other):
         """Equality operator.

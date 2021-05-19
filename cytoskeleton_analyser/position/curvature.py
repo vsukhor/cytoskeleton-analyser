@@ -49,8 +49,9 @@ class D2:
         :param ddp: 2d laplacian.
         """
 
-        return np.abs(ddp[0, :]*dp[1, :] - dp[0, :]*ddp[1, :]) / \
-               (dp[0, :]**2 + dp[1, :]**2)**1.5
+        return \
+            np.abs(ddp[0, :]*dp[1, :] - dp[0, :]*ddp[1, :]) / \
+            (dp[0, :]**2 + dp[1, :]**2)**1.5
 
 
 class D3:
@@ -72,10 +73,11 @@ class D3:
         :param ddp: 2d laplacian.
         """
 
-        return np.sqrt((ddp[2, :] * dp[1, :] - dp[2, :] * ddp[1, :])**2 +
-                       (ddp[0, :] * dp[2, :] - dp[0, :] * ddp[2, :])**2 +
-                       (ddp[1, :] * dp[0, :] - dp[1, :] * ddp[0, :])**2) / \
-               (dp[0, :]**2 + dp[1, :]**2 + dp[2, :]**2)**1.5
+        return \
+            np.sqrt((ddp[2, :] * dp[1, :] - dp[2, :] * ddp[1, :])**2 +
+                    (ddp[0, :] * dp[2, :] - dp[0, :] * ddp[2, :])**2 +
+                    (ddp[1, :] * dp[0, :] - dp[1, :] * ddp[0, :])**2) / \
+            (dp[0, :]**2 + dp[1, :]**2 + dp[2, :]**2)**1.5
 
 
 class Curvature:

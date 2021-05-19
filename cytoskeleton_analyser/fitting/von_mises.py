@@ -38,7 +38,6 @@ class VonMisesTriple(Base):
     """Data model using three-component von Mises distribution.
     """
 
-
     nump: Final = 6              #: Number of fitted parameters.
     sl: Final = slice(0, nump)   #: Slice selecting parameters to fit.
 
@@ -131,7 +130,6 @@ class VonMisesTriple(Base):
             self.c3(self.x, par['a'], par['k3'], par['mi3']),
         ]
 
-
     @classmethod
     def c1(cls, th, k1, a, b):
         """First component of the fitted function.
@@ -144,27 +142,30 @@ class VonMisesTriple(Base):
         """Second component of the fitted function.
         """
 
-        return a * (1. - b) * (np.exp(k2 * np.cos(th - np.pi/2.)) +
-                               np.exp(k2 * np.cos(th - 3.*np.pi/2.))) \
-               / (2.*np.pi * np.i0(k2))
+        return \
+            a * (1. - b) * (np.exp(k2 * np.cos(th - np.pi/2.)) +
+                            np.exp(k2 * np.cos(th - 3.*np.pi/2.))) \
+            / (2.*np.pi * np.i0(k2))
 
     @classmethod
     def c3(cls, th, a, k3, mi3):
         """Third component of the fitted function.
         """
 
-        return (1. - a) * (np.exp(k3 * np.cos(th - mi3)) +
-                           np.exp(k3 * np.cos(th - (2.*np.pi - mi3)))) \
-               / (2.*np.pi * np.i0(k3))
+        return \
+            (1. - a) * (np.exp(k3 * np.cos(th - mi3)) +
+                        np.exp(k3 * np.cos(th - (2.*np.pi - mi3)))) \
+            / (2.*np.pi * np.i0(k3))
 
     @classmethod
     def full(cls, th, k1, k2, a, b, k3, mi3):
         """Sum of component function.
         """
 
-        return cls.c1(th, k1, a, b) + \
-               cls.c2(th, k2, a, b) + \
-               cls.c3(th, a, k3, mi3)
+        return \
+            cls.c1(th, k1, a, b) + \
+            cls.c2(th, k2, a, b) + \
+            cls.c3(th, a, k3, mi3)
 
 
 class VonMisesDouble(Base):
@@ -265,23 +266,26 @@ class VonMisesDouble(Base):
         """First component of the fitted function.
         """
 
-        return a * b * (np.exp(k1 * np.cos(th - np.pi/2.)) +
-                        np.exp(k1 * np.cos(th - 3.*np.pi/2.))) / \
-               (2.*np.pi * np.i0(k1))
+        return \
+            a * b * (np.exp(k1 * np.cos(th - np.pi/2.)) +
+                     np.exp(k1 * np.cos(th - 3.*np.pi/2.))) / \
+            (2.*np.pi * np.i0(k1))
 
     @classmethod
     def c2(cls, th, a, b, k2, mi2):
         """Second component of the fitted function.
         """
 
-        return a * (1. - b) * (np.exp(k2 * np.cos(th - mi2)) +
-                               np.exp(k2 * np.cos(th - (2.*np.pi - mi2)))) / \
-               (2.*np.pi * np.i0(k2))
+        return \
+            a * (1. - b) * (np.exp(k2 * np.cos(th - mi2)) +
+                            np.exp(k2 * np.cos(th - (2.*np.pi - mi2)))) / \
+            (2.*np.pi * np.i0(k2))
 
     @classmethod
     def full(cls, th, a, b, k1, k2, mi2):
         """Sum of component function.
         """
 
-        return cls.c1(th, a, b, k1) + \
-               cls.c2(th, a, b, k2, mi2)
+        return \
+            cls.c1(th, a, b, k1) + \
+            cls.c2(th, a, b, k2, mi2)

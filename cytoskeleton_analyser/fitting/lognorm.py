@@ -58,13 +58,13 @@ class Lognorm(Base):
         self.bounds = (np.array([0., -np.inf, -np.inf]),
                        np.array([+np.inf, +np.inf, +np.inf]))
 
-    def _par(self) ->dict:
+    def _par(self) -> dict:
         """Parameters as a dictionary {'name': value}.
         """
 
         # common parametrisation: mi = ln(scale), sigma = shape
         return {'mi': np.log(self.p[1]),
-                    'sigma': self.p[0]}
+                'sigma': self.p[0]}
 
     def sl(
             self,
@@ -102,7 +102,7 @@ class Lognorm(Base):
         """
 
         self.p = np.full_like(self.p0, np.nan)
-        self.name = self.__class__.__name__+ '.' + f.__name__
+        self.name = self.__class__.__name__ + '.' + f.__name__
         super()._fit(f, y, self.sl(f))
         self.par = self._par()
         self.mean = self._mean()
@@ -127,7 +127,7 @@ class Lognorm(Base):
         """
 
         self.p = np.array(self.p0)
-        self.name = self.__class__.__name__+ '.' + f.__name__
+        self.name = self.__class__.__name__ + '.' + f.__name__
         self.isbest = True
         self.par = self._par()
         self.mean = self._mean()

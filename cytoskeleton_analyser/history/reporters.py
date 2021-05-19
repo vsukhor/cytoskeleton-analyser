@@ -78,7 +78,7 @@ class _StateSequenceReport(Report):
         cls.path_out = ph.path_out
         cls.attr = getattr(cls.ph, cls.feature)
         cls.name = region + ' ' + ph.name() + ' ' + \
-                   cls.feature + f' at end {ph.END}'
+            cls.feature + f' at end {ph.END}'
 
         return cls
 
@@ -161,8 +161,8 @@ class Elongation(_StateSequenceReport):
 
             h = Histogram(
                 cls.name,
-                Simulated().
-                    initialise(data, cls.fits_sim, dx=0.12, density=True)
+                Simulated()
+                .initialise(data, cls.fits_sim, dx=0.12, density=True)
             )
             h.to_csv(cls.path_out)
             cls.plot_sequence_property(h, xlim=[0., 40.], show=show)
@@ -223,8 +223,8 @@ class Velocity(_StateSequenceReport):
 
             h = Histogram(
                 cls.name,
-                Simulated().
-                    initialise(data, cls.fits_sim, dx=0.5, density=True)
+                Simulated()
+                .initialise(data, cls.fits_sim, dx=0.5, density=True)
             )
             h.to_csv(cls.path_out)
             cls.plot_sequence_property(h, xlim=[0., 50.], show=show)

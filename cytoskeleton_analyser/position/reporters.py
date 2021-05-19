@@ -87,6 +87,8 @@ class Features:
     #: Complete set of implemented features.
     all: Final[list[str]] = common + only_full + only_slice
 
+    __all__ = all
+
     @staticmethod
     def is_common(f: str) -> bool:
         """True if ``f`` belongs to set common to both representations.
@@ -134,12 +136,13 @@ class Features:
         :param tp: Feature class name.
         """
 
-        return Features.is_common(f) or \
-               tp.type == 'slice' and Features.is_slice(f) or \
-               tp.type == 'full' and Features.is_full(f)
+        return \
+            Features.is_common(f) or \
+            tp.type == 'slice' and Features.is_slice(f) or \
+            tp.type == 'full' and Features.is_full(f)
 
     @staticmethod
-    def reporter(f: str) :
+    def reporter(f: str):
         """Convert feature name ``f`` to corresponding reporter type.
 
         :param f: Feature name.
@@ -342,25 +345,25 @@ class Lengths2d(_Report):
         best = []
         if cls.tp.type == 'full':
             cls.fits_sim = [
-#                (fit.Gamma.loc0, [1., 1, 0.]),
-#                (fit.Weibull.full, [2., 3.]),
+             #  (fit.Gamma.loc0, [1., 1, 0.]),
+             #  (fit.Weibull.full, [2., 3.]),
             ]
             best = [0]
 
         if cls.tp.type == 'slice':
-            e = fit.Exponential.create()
-            p = fit.Exponential.Pars
-            tu = cls.units
+            # e = fit.Exponential.create()
+            # p = fit.Exponential.Pars
+            # tu = cls.units
 
             cls.fits_exp = [
-#                (e.d_h, p(a=1., tau1=2.), tu),
-#                (fit.Gamma.loc0, [1., 1, 0.]),
-#                (fit.Weibull.full, [2., 3.]),
+             # (e.d_h, p(a=1., tau1=2.), tu),
+             # (fit.Gamma.loc0, [1., 1, 0.]),
+             # (fit.Weibull.full, [2., 3.]),
             ]
             cls.fits_sim = [
-#                (e.d_h, p(a=1., tau1=2.), tu),
-#                (fit.Gamma.loc0, [1., 1, 0.]),
-#                (fit.Weibull.full, [2., 3.]),
+             # (e.d_h, p(a=1., tau1=2.), tu),
+             # (fit.Gamma.loc0, [1., 1, 0.]),
+             # (fit.Weibull.full, [2., 3.]),
             ]
             best = [1, 1]
 
@@ -506,7 +509,7 @@ class SegmentNumbers(_Report):
     def create(
             cls,
             tp: type[FullDepth],
-            _ = None,
+            _,
     ) -> type[SegmentNumbers]:
 
         super()._create(tp, __class__.__name__)
@@ -542,9 +545,9 @@ class SegmentNumbers(_Report):
         cls.logger.info('Restoring ' + cls.name + ':')
         summary = cls.log_stats(path)
 
-#        fname = f"{cls.path_out}{cls.name}.json"
-#        with open(fname, 'w') as f:
-#            json.dump({'num': {'avg': avg, 'std': std}}, f)
+        # fname = f"{cls.path_out}{cls.name}.json"
+        # with open(fname, 'w') as f:
+        #     json.dump({'num': {'avg': avg, 'std': std}}, f)
         cls.logger.info('')
 
         return {'summary': summary,
@@ -680,16 +683,15 @@ class Curvature2dConv(_Report):
     ) -> None:
 
         cls.fits_sim = [
-#            (fit.Gamma.loc0, [2., 0.1, 0.]),
-#            (fit.Weibull.full, [2., 1.]),
-#            (fit.Rayleigh.f, [.5]),
+          # (fit.Gamma.loc0, [2., 0.1, 0.]),
+          # (fit.Weibull.full, [2., 1.]),
+          # (fit.Rayleigh.f, [.5]),
         ]
 
         rep = cls.report(sp)
         cls.summarize(rep, [0])
 
 
-# ======================================================================================================================
 class Curvature2dMboc17(_Report):
     """Reports microtubule curvatures using formulas applied in the
        processing of superresolution images by Zhang et al. MBoC 2017
@@ -707,13 +709,17 @@ class Curvature2dMboc17(_Report):
 
         name = __class__.__name__
         if tp.type != 'slice':
-            tp.logger.warning(f'WARNING: Analysis of {name} makes only '
-                               f'sence for Tirf slices.')
+            tp.logger.warning(
+                f'WARNING: Analysis of {name} makes only '
+                f'sence for Tirf slices.'
+            )
 
         ct = tp.params['cell'].typename
         if ct != 'RW_Protr' and ct != 'SpreRou':
-            tp.logger.warning(f'WARNING: Analysis of {name} makes only '
-                               f'sence for specific cell types.')
+            tp.logger.warning(
+                f'WARNING: Analysis of {name} makes only '
+                f'sence for specific cell types.'
+            )
 
         super()._create(tp, name, show)
         cls.units = '1/' + tp.len_units
@@ -745,7 +751,7 @@ class Curvature2dMboc17(_Report):
     def report(
             cls,
             sp: ListOfSpatialSystems,
-        ) -> tuple[Histogram, list, list]:
+    ) -> tuple[Histogram, list, list]:
 
         data = [s.curv2d_mboc17 for s in sp]
         avg, std = cls.tp.print_avgstd(cls.LABEL, data, cls.units)
@@ -796,14 +802,14 @@ class Curvature2dMboc17(_Report):
     ) -> None:
 
         cls.fits_sim = [
-#            (fit.Gamma.loc0, [2., 0.1, 0.]),
-#            (fit.Weibull.full, [2., 1.]),
-#            (fit.Rayleigh.f, [1.]),
+          #  (fit.Gamma.loc0, [2., 0.1, 0.]),
+          #  (fit.Weibull.full, [2., 1.]),
+          #  (fit.Rayleigh.f, [1.]),
         ]
         cls.fits_exp = [
-#            (fit.Gamma.loc0, [2., 0.1, 0.]),
-#            (fit.Weibull.full, [2., 1.]),
-#            (fit.Rayleigh.f, [1.]),
+          #  (fit.Gamma.loc0, [2., 0.1, 0.]),
+          #  (fit.Weibull.full, [2., 1.]),
+          #  (fit.Rayleigh.f, [1.]),
         ]
 
         rep = cls.report(sp)
@@ -848,8 +854,8 @@ class AnglesToRad(_Report):
         h = Histogram(
             cls.name,
             Simulated()
-                .initialise(data, cls.fits_sim, dx=2.*np.pi/180., density=True,
-                            polar=cls.is_polar, halfpolar=cls.is_halfpolar),
+            .initialise(data, cls.fits_sim, dx=2.*np.pi/180., density=True,
+                        polar=cls.is_polar, halfpolar=cls.is_halfpolar),
         )
         h.to_csv(cls.path_out)
         cls.plot(h)

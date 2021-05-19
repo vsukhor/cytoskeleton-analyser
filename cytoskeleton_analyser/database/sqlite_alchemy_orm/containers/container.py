@@ -116,8 +116,10 @@ class Optional(Base):
         """Database columns corresponding to keys of dictionary ``d``.
         """
 
-        return super().columns(d) \
-               if cls.is_used else False
+        return \
+            super().columns(d) \
+            if cls.is_used \
+            else False
 
     @classmethod
     def add_to_db(
@@ -129,5 +131,7 @@ class Optional(Base):
         """Append dict items of dictionary ``d`` to the database.
         """
 
-        return super().add_to_db(d, session) \
-               if cls.is_used else None
+        return \
+            super().add_to_db(d, session) \
+            if cls.is_used \
+            else None

@@ -296,7 +296,7 @@ class CellHistory:
         """
 
         fname = self.paths.data_out /\
-                f'comet_radial_distribution_e{self.end}'
+            f'comet_radial_distribution_e{self.end}'
 
         edges, bincenters = self.cell.discretize_radius(nbins=300)
         h = self.collections['cytosol'] \

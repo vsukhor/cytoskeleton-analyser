@@ -149,7 +149,7 @@ def read_to_dtype(
 
 def read_to_ndarray(
         v: np.ndarray,
-        f :BinaryIO,
+        f: BinaryIO,
         i: int,
 ) -> None:
     """Read in (in place) an numpy.ndarray of numbers.
@@ -165,7 +165,7 @@ def read_to_ndarray(
 
 def set_logger(
         name: str,
-        file: pl.Path
+        file: pl.Path,
 ) -> logging.Logger:
     """Convenience routine creating loggers used throughout the project.
 
@@ -233,9 +233,9 @@ def rmdir(d: pl.Path) -> None:
 
     try:
         shutil.rmtree(d)
-        print ('Deleted: '+ str(d))
+        print(f'Deleted: {d}')
     except OSError as e:
-        print ("Error: %s - %s." % (e.filename, e.strerror))
+        print(f'Error: {e.filename} - {e.strerror}.')
 
 
 def underscored(s: str) -> str:

@@ -58,7 +58,7 @@ class Rayleigh(Base):
         self.bounds = (np.array([0.]), np.array([+np.inf]))
         self.sl = slice(0, self.nump)
 
-    def _par(self) ->dict:
+    def _par(self) -> dict:
         """Parameters as a dictionary {'name': value}.
         """
 
@@ -127,9 +127,10 @@ class Rayleigh(Base):
         return self
 
     @classmethod
-    def f(cls,
-          x: np.ndarray,
-          sigma: float
+    def f(
+            cls,
+            x: np.ndarray,
+            sigma: float
     ) -> np.ndarray:
         """Fitted function
         """

@@ -59,16 +59,16 @@ class Base:
         self.x: np.ndarray = np.array(x)
         #: Units for data x-values.
         self.x_units: Optional[str] = x_units
-        
+
         #: Initial values of model parameters.
         self.p0: np.ndarray = np.array(p0)
-        
+
         #: Optilized values of model parameters.
         self.p: np.ndarray = np.full_like(self.p0, np.nan)
-        
+
         #: Model parameters as a dictionary {'name': value}
-        self.par = {}  
-        
+        self.par = {}
+
         #: Bounds on the model parameters.
         self.bounds = (np.full_like(p0, -np.inf),
                        np.full_like(p0, np.inf))
@@ -89,17 +89,18 @@ class Base:
         self.isbest = False
 
     def _fit(
-            self, 
-            f: Callable, 
-            y: np.ndarray, 
-            sl: slice):
+            self,
+            f: Callable,
+            y: np.ndarray,
+            sl: slice
+    ):
         """Fitting procedure common to all models.
 
         :param f: Function to fit.
         :param y: Data y values.
         :param sl: Slice selecting model-specific parameters.
         """
-        
+
         self.p[sl], self.cov = \
             curve_fit(
                 f=f,
@@ -118,11 +119,11 @@ class Base:
             sl: slice,
     ) -> np.ndarray:
         """Model prediction.
-        
+
         :param f: Model function.
         :param sl: Slice selecting model-specific parameters.
         """
-        
+
         return f(self.x, *self.p[sl])
 
     def set_quality_indicators(
@@ -135,7 +136,8 @@ class Base:
         """
 
         residuals = y - self.prediction
-        inds_nonzero = np.where(np.isclose(self.prediction, 0.) == False)[0]
+        inds_nonzero = \
+            np.where(np.logical_not(np.isclose(self.prediction, 0.)))[0]
         self.residnorm = np.linalg.norm(residuals[inds_nonzero])
         if inds_nonzero.size:
             self.chi2 = np.sum(residuals[inds_nonzero]**2 /
@@ -177,8 +179,8 @@ class Base:
                              f"{self.x[self.equilibrium_ind]:.4f} " +
                              self.x_units)
         elif is_reportable(self.saturation):
-            Base.logger.info(f"    no equilibration is achieved "
-                             f"before the simulation end")
+            Base.logger.info("    no equilibration is achieved "
+                             "before the simulation end")
 
     def set_equilibration(
             self,

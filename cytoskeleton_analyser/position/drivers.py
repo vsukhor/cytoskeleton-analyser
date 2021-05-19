@@ -28,7 +28,7 @@ from typing import Optional
 
 from ..inout import Paths
 from ..inout import set_logger
-from .reporters import *
+from .reporters import Features
 from .spatial_systems import ListOfSpatialSystems
 from .spatial_systems import FullDepth
 from .spatial_systems import Slice

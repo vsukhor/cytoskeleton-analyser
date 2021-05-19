@@ -23,7 +23,7 @@
 # USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # -----------------------------------------------------------------------------
 
-"""Configuration of icrotubule organizing centers.
+"""Configuration of microtubule organizing centers.
 """
 from __future__ import annotations
 
@@ -55,27 +55,25 @@ class Mtoc:
         """ Initialise this instance using configuration Reader.
         """
 
-        # Parameter names used in the simulation output file are given
-        # in comments.
-        self.centrosome['total_frac'] = float(r.value(2))  # totalFract_Centrosome
-        self.centrosome['minus_end_cargo_free'] = float(r.value(2))  # minusEnd_cargoFree_Centrosome
-        self.centrosome['origin'] = r.array_float(1)  # origin_Centrosome
-        self.centrosome['size'] = r.array_float(1)  # size_Centrosome
-        self.nucleus['total_frac'] = float(r.value(2))  # totalFract_Nucleus
-        self.nucleus['minus_end_cargo_free'] = float(r.value(2))  # minusEnd_cargoFree_Nucleus
-        self.nucleus['polar_bias'] = int(r.value(2))  # polarBias_Nucleus
-        self.nucleus['angular_spread'] = float(r.value(2))  # angularSpread_Nucleus
-        self.golgi['total_frac'] = float(r.value(2))  # totalFract_Golgi
-        self.golgi['minus_end_cargo_free'] = float(r.value(2))  # minusEnd_cargoFree_Golgi
-        self.golgi['origin'] = r.array_float(1)  # origin_Golgi
-        self.golgi['size'] = r.array_float(1)  # size_Golgi
-        self.golgi['polar_bias'] = int(r.value(2))  # polarBias_Golgi
-        self.golgi['angular_spread'] = float(r.value(2))  # angularSpread_Golgi
-        self.inspace['total_frac'] = float(r.value(2))  # totalFract_InSpace
-        self.inspace['minus_end_cargo_free'] = float(r.value(2))  # minusEnd_cargoFree_InSpace
-        self.inspace['use_pbs'] = int(r.value(2))  # usePBC_InSpace
-        self.inspace['par_int'] = int(r.value(2))  # parInt_InSpace
-        self.inspace['par_real'] = float(r.value(2))  # parReal_InSpace
+        self.centrosome['total_frac'] = float(r.value(2))
+        self.centrosome['minus_end_cargo_free'] = float(r.value(2))
+        self.centrosome['origin'] = r.array_float(1)
+        self.centrosome['size'] = r.array_float(1)
+        self.nucleus['total_frac'] = float(r.value(2))
+        self.nucleus['minus_end_cargo_free'] = float(r.value(2))
+        self.nucleus['polar_bias'] = int(r.value(2))
+        self.nucleus['angular_spread'] = float(r.value(2))
+        self.golgi['total_frac'] = float(r.value(2))
+        self.golgi['minus_end_cargo_free'] = float(r.value(2))
+        self.golgi['origin'] = r.array_float(1)
+        self.golgi['size'] = r.array_float(1)
+        self.golgi['polar_bias'] = int(r.value(2))
+        self.golgi['angular_spread'] = float(r.value(2))
+        self.inspace['total_frac'] = float(r.value(2))
+        self.inspace['minus_end_cargo_free'] = float(r.value(2))
+        self.inspace['use_pbs'] = int(r.value(2))
+        self.inspace['par_int'] = int(r.value(2))
+        self.inspace['par_real'] = float(r.value(2))
 
     def __eq__(self, other):
         """Equality operator.

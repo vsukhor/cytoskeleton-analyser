@@ -89,7 +89,7 @@ class Db:
         :param path: Path to the database-specific log file.
         """
 
-        file_h = logging.FileHandler(path / f'db.log')
+        file_h = logging.FileHandler(path / 'db.log')
         file_h.setLevel(logging.INFO)
 
         lgr = logging.getLogger('sqlalchemy')

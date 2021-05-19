@@ -87,7 +87,7 @@ class FullDepth:
         """
 
         #: Snap index.
-        self.snap_ind: int  = snap_ind
+        self.snap_ind: int = snap_ind
 
         #: Simulation run index.
         self.rind: int = rind
@@ -119,8 +119,10 @@ class FullDepth:
             f" csk {self.rind}\n"
 
         #: File name of the file containing node positions.
-        self.fname_pos: Path = self.paths.run / f"positions_{cof}{si}{self.rind}"
-        self.fname_ages: Path = self.paths.run / f"csk_ages_{cof}{si}{self.rind}"
+        self.fname_pos: Path = \
+            self.paths.run / f"positions_{cof}{si}{self.rind}"
+        self.fname_ages: Path = \
+            self.paths.run / f"csk_ages_{cof}{si}{self.rind}"
         self.figtitle3d: str = 'MT ' + self.type + ': \n' + self.signature
 
         # Positional coordinates and measures:

@@ -312,22 +312,22 @@ class EventCollections:
                          f"{g0s_dur.units}")
 
         g0s_g_dur_frac = self.grows.duration.avg / g0s_dur.avg \
-            if not np.isclose(g0s_dur.avg, 0.) and \
-               not np.isnan(g0s_dur.avg) \
+            if not np.isclose(g0s_dur.avg, 0.) \
+            and not np.isnan(g0s_dur.avg) \
             else np.nan
         self.logger.info(f"Correlated {self.region} "
                          f"growth time fraction g0s cycle: {g0s_g_dur_frac}")
 
         g0s_s_dur_frac = self.shrinks.duration.avg / g0s_dur.avg \
-            if not np.isclose(g0s_dur.avg, 0.) and \
-               not np.isnan(g0s_dur.avg) \
+            if not np.isclose(g0s_dur.avg, 0.) \
+            and not np.isnan(g0s_dur.avg) \
             else np.nan
         self.logger.info(f"Correlated {self.region} "
                          f"shrink time fraction g0s cycle: {g0s_s_dur_frac}")
 
         g0s_p_dur_frac = self.pauses.duration.avg / g0s_dur.avg \
-            if not np.isclose(g0s_dur.avg, 0.) and \
-               not np.isnan(g0s_dur.avg) \
+            if not np.isclose(g0s_dur.avg, 0.) \
+            and not np.isnan(g0s_dur.avg) \
             else np.nan
         self.logger.info(f"Correlated {self.region} "
                          f"pause time fraction g0s cycle: {g0s_p_dur_frac}")
