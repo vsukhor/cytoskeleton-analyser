@@ -847,9 +847,9 @@ class AnglesToRad(_Report):
 
         h = Histogram(
             cls.name,
-            Simulated().
-                initialise(data, cls.fits_sim, dx=2.*np.pi/180., density=True,
-                           polar=cls.is_polar, halfpolar=cls.is_halfpolar),
+            Simulated()
+                .initialise(data, cls.fits_sim, dx=2.*np.pi/180., density=True,
+                            polar=cls.is_polar, halfpolar=cls.is_halfpolar),
         )
         h.to_csv(cls.path_out)
         cls.plot(h)
