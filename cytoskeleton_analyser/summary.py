@@ -122,7 +122,7 @@ class Summary:
 
         :param path: File position on the data storage device.
         :param name: File name without suffix.
-        :return: Initialized nstance of of this class.
+        :return: Initialized instance of of this class.
         """
 
         fname = (path / underscored(name)).with_suffix('.json')
