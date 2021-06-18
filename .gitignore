@@ -6,6 +6,7 @@ venv*
 __pycache__/
 .pytest_cache/
 .DS_Store
+.tox/
 build/
 docs/build/
 dist/
