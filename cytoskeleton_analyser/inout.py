@@ -136,7 +136,7 @@ def read_to_dtype(
     Data are read from the descriptor 'f' of a binary file.
     :param v: Data item of the desired type.
     :param f: Binary file.
-    :param n: How many numbers to rread in.
+    :param n: How many numbers to read in.
     :return: Data extracted.
     """
 
