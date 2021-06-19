@@ -13,7 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
-sys.path.insert(0, os.path.abspath('../../venv3.9/lib/python3.9/site-packages'))
+#sys.path.insert(0, os.path.abspath('../../venv3.9/lib/python3.9/site-packages'))
 import cytoskeleton_analyser.version as _version
 
 # -- Project information -----------------------------------------------------
@@ -38,16 +38,18 @@ release = _version.__version__
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
 ]
 
-autodoc_mock_imports = [
+#autodoc_mock_imports = [
 #    'numpy',
 #    'scipy',
 #    'matplotlib',
 #    'sqlalchemy',
 #    'meshio',
-    'setup',
-]
+#    'setup',
+#]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
