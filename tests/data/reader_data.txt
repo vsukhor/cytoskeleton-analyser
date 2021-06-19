@@ -1,0 +1,6 @@
+first line to skip
+second line to skip
+third line
+data1 data2 data3 data4 data5
+
+4.e3 5.e3 6.e3 7.e3 8.e3

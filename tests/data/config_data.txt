@@ -1,0 +1,126 @@
+Run 428 started: in thread 0 at Mon Feb 15 20:44:48 2021
+
+workingDirIn = ./runs/Protr_test/
+workingDirOut = ./runs/Protr_test/
+runIni = 428
+runEnd = 428
+pdbScaling = 0.100000
+numCytoskeletons = 1
+cytoskeletonRun = -1
+cskGenerateNew = 1
+usePlasma = 1
+plasmaMembraneRun = 3021
+useNucleus = 1
+Reading from file /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/seeds seed no: 428
+RUN = 428
+SEED = 797746458
+
+Creating nucleus:
+
+Reading config from: /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/configNuc_Protr_test.txt
+origin[]:   0.000000 0.000000 6.000000
+size[]:   6.000000 6.000000 5.000000
+orientation[]:   0.000000 0.000000 0.000000
+Copying Nuc config to /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/cfgCopy_Nuc_m428_cG_428_p_3021.txt
+Nucleus has been created.
+
+Creating plasma membrane:
+Importing plasma membrane mesh from /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/plasmaMesh_3021.stl ...
+Plasma membrane mesh imported successfully
+Setting facet neighbors ...
+Finished
+Setting facet neighbors ...
+Finished
+Setting facet neighbors ...
+Finished
+maskApicalFacets reading started from: /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/maskApicalFacets_3021
+...finished
+Plasma has been created: 16744 mesh facets
+
+Cytosol volume is 3267.27 um^3
+Cytosol concCoef is 1.9676e+06 molecules per uM in the whole reactor
+
+Reading config from: /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/configCsk_Protr_test.txt
+numFilaments = 500
+cTubulinTotal = 18.000000
+timeTotal = 1000000.000000
+logFrequency = 100000
+saveFine = 1
+saveCoarse = 1
+recordMultipleSaveFrames = 0
+saveInterval = 1000.000000
+exportFine = 1
+exportCoarse = 1
+recordMultiplePdbFrames = 0
+pdbInterval = 1000.000000
+recordHistory = 0
+historySize = 100.000000
+numProxThreads = 1
+proximityThreshold = 0.300000
+omitProximOwnNodes = 1
+proximityStep = 1
+
+Reading config from: /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/configFTp_Protr_test.txt
+
+Reading config from: /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/configCskM1d_Protr_test.txt
+step = 0.200000
+persistLength = 20.000000
+Copying Csk config to /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/csk428/cfgCopy_Csk_m428_cG_428_p_3021.txt
+Copying FTp config to /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/csk428/cfgCopy_FTp_m428_cG_428_p_3021.txt
+Copying CskM1d config to /Users/vs/Mitofraps/explicit_mt_0.3/runs/Protr_test/plm3021/csk428/cfgCopy_CskM1d_m428_cG_428_p_3021.txt
+Csk run 428 started: Mon Feb 15 20:44:52 2021
+
+totalFract_Centrosome = 0.300000
+minusEnd_cargoFree_Centrosome = 2.000000
+origin_Centrosome[]:   0.000000 0.000000 0.000000
+size_Centrosome[]:   0.500000 0.500000 0.500000
+totalFract_Nucleus = 0.700000
+minusEnd_cargoFree_Nucleus = 1.000000
+polarBias_Nucleus = 1
+angularSpread_Nucleus = 0.392700
+totalFract_Golgi = 0.000000
+minusEnd_cargoFree_Golgi = 2.000000
+origin_Golgi[]:   7.000000 0.000000 7.000000
+size_Golgi[]:   2.000000 2.000000 2.000000
+polarBias_Golgi = 0
+angularSpread_Golgi = 0.000000
+totalFract_InSpace = 0.000000
+minusEnd_cargoFree_InSpace = 1.000000
+usePBC_InSpace = 0
+parInt_InSpace = 0
+parReal_InSpace = 0.000000
+Dynamic cytoskeleton generation: 500 filaments will be created.
+The filament nodes are spaced by 0.008000 um, i.e 1 length of a tubulin dimer.
+On output, a coarse-grained representation (factor 25) is added, so that the coarse nodes are spaced by 0.200000 um.
+The system consists of total dimeric tubulin 35416732 molecules.
+In a fully unpolymerised state, this corresponds to a concentration of tubulin dimers 17.999994 uM over the cytosole volume 3267.270996 um^3.
+13 dimers are used per fine-graned node.
+325 dimers are used per coarse-graned node.
+So, overall, the system has enough tubulin dimers to form 2724364 fine-grained (i.e. 108974 coarse-grained) units.
+sufficient for a max average filament length 43.584003 um (5448 fine nodes).
+pRelease = 0.001000
+pCut = 0.000000
+pCap0 = 0.100000
+pUncap0 = 0.040000
+pGSfree = 0.005000
+pSGfree = 0.130000
+pPSfree = 0.200000
+casThickness = 0.100000
+casOrientation_zoneExtent = 6.000000
+casOrientation_intensity = 0.000000
+casCatastrActivation_zoneExtent = 6.000000
+casCatastrActivation_intensity = 0.000000
+casCatastrInhibition_zoneExtent = 6.000000
+casCatastrInhibition_intensity = 0.000000
+casRescueActivation_zoneExtent = 6.000000
+casRescueActivation_intensity = 0.000000
+casRescueInhibition_zoneExtent = 6.000000
+casRescueInhibition_intensity = 0.000000
+casGrowthSlowdown_zoneExtent = 6.000000
+casGrowthSlowdown_intensity = 0.000000
+plMembrOrientStrength = 0.000000
+plMembrInteractThresh = 3.000000
+nucMembrOrientStrength = 0.000000
+nucMembrInteractThresh = 0.300000
+velocity_sh0 = 29.000000
+velocity_sh1 = 29.000000
