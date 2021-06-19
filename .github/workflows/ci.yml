@@ -48,7 +48,7 @@ jobs:
 
       - name: Build package
         run: |
-          pip install -m build
+          pip install build
           python -m build
 
       - name: Publish to PyPI
